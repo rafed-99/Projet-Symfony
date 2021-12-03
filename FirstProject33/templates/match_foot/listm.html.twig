@@ -1,0 +1,31 @@
+{% extends 'front/front.html.twig' %}
+{% block title%} Liste des match{% endblock %}
+
+{% block body %}
+{{ form_start(fc) }}
+
+
+   {{ form_row(fc.ref_match) }}
+
+<button type="submit" class="btn btn-success">Rechercher</button>
+
+{{ form_end(fc) }}
+{% if match_foot %}
+<table border="1" >
+    <tr>
+        <th>ref_match</th>
+        <th>date_match</th>
+        <th>nom_stade</th>
+        <th>nbr_spectateur</th>
+    </tr>
+    <tr {% for m in match_foot %}>
+        <td>{{ m.getRefMatch() }}</td>
+        <td>{{ m.getDateMatch() }}</td>
+        <td>{{ m.getNomStade()}}</td>
+        <td>{{ m.getNbrSpectateur()}}</td>
+        </tr {% endfor %}>
+</table>
+{% else %}
+    <p>Aucun match</p>
+{% endif %}
+{% endblock %}

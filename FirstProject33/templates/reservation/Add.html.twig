@@ -1,0 +1,45 @@
+
+{% extends 'front/front.html.twig' %}
+    {% block body%}
+
+
+<h1> Ajoute Reservation</h1>
+<div>
+
+
+{#  {{ form(form)  }}#}
+{{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+
+
+    <table>
+    <tr>
+        <td> {{ form_label(form.cin_client,"Cin client")}} </td>
+        <td>{{ form_widget(form.cin_client) }}</td>
+        <td> {{ form_errors(form.cin_client) }}</td>
+
+    </tr>
+    <tr>
+        <td> {{ form_label(form.ref_match,"reference match foot")}} </td>
+        <td>{{ form_widget(form.ref_match) }}</td>
+        <td> {{ form_errors(form.ref_match) }}</td>
+
+    </tr>
+    <tr>
+        <td> {{ form_label(form.num_ticket,"numéro ticket ")}} </td>
+        <td>{{ form_widget(form.num_ticket) }}</td>
+        <td> {{ form_errors(form.num_ticket) }}</td>
+
+    </tr>
+    <tr>
+        <td> {{ form_label(form.date_reservation,"date reservation ")}} </td>
+        <td>{{ form_widget(form.date_reservation) }}</td>
+        <td> {{ form_errors(form.date_reservation) }}</td>
+
+    </tr>
+</table>
+    {{ form_end(form) }}
+</div>
+
+
+{% endblock %}
