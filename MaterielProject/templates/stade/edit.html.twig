@@ -1,0 +1,28 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}New Stade{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+
+    {{ form_start(form, {'attr': {'class': 'forms-sample'}}) }}
+    <div class="form-group">
+        <label for="exampleInputUsername1">Titre</label>
+        {{ form_widget(form.noms, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.noms) }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Lieu</label>
+        {{ form_widget(form.capacites, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.capacites) }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Image</label>
+        {{ form_widget(form.file, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <input type="submit" value="Enregistrer" class="btn btn-success" formnovalidate/>
+
+
+    {{ form_end(form) }}
+{% endblock %}

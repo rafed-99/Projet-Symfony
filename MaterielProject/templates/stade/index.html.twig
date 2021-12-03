@@ -1,0 +1,53 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Stade index{% endblock %}
+
+{% block body %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#rech tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+    <table class="table">
+        <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+
+        <thead>
+            <tr>
+                <th>Noms</th>
+                <th>Capacites</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="rech">
+        {% for stade in stades %}
+            <tr>
+                <td>{{ stade.noms }}</td>
+                <td>{{ stade.capacites }}</td>
+                <td><img src="{{ asset('Upload/')}}{{ stade.image }}" width="100"  /></td>
+                <td>
+                    <a href="{{ path('stade_delete', {'id': stade.id}) }}"  class="btn btn-danger">Delete</a>
+                    <a href="{{ path('stade_edit', {'id': stade.id}) }}"  class="btn btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {{ knp_pagination_render(stades) }}
+
+    </table>
+
+{% endblock %}
