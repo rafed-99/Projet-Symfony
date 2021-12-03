@@ -1,0 +1,38 @@
+{% extends 'back/base.html.twig' %}
+{% block body%}
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1> liste de ticket </h1>
+<table border="1" >
+    <tr>
+        <th>num_ticket</th>
+        <th>ref_match</th>
+        <th>num_place</th>
+        <th>disp</th>
+
+
+        <td> Delete</td>
+        <td> Update</td>
+    </tr>
+    <tr {% for t in ticket %}>
+        <td>{{ t.getNumTicket() }}</td>
+        <td>{{ t.getRefMatch() }}</td>
+        <td>{{ t.getNumPlace()}}</td>
+        <td>{{ t.getDisp}}</td>
+        <td> <a href="{{ path('dt',{num_ticket:t.getNumTicket()}) }}">Delete</a></td>
+        <td> <a href="{{ path('updatet',{'num_ticket':t.getNumTicket()}) }}">update</a></td>
+
+    </tr {% endfor %}>
+</table>
+</body>
+</html>
+{% endblock %}

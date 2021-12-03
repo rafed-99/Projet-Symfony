@@ -1,0 +1,24 @@
+
+{% extends 'front/front.html.twig' %}
+    {% block body%}
+<h1> liste de reservation </h1>
+<table border="1" >
+    <tr>
+        <th>id_reservation</th>
+        <th>cin_client</th>
+        <th>ref_match</th>
+        <th>num_ticket</th>
+        <th>date_reservation</th>
+
+
+    </tr>
+    <tr {% for r in reservation %}>
+        <td>{{ r.getIdReservation() }}</td>
+        <td>{{ r.getCinClient() }}</td>
+        <td>{{ r.getRefMatch()}}</td>
+        <td>{{ r.getNumTicket()}}</td>
+        <td>{{ r.getDateReservation()|date("m/d/Y")}}</td>
+
+    </tr {% endfor %}>
+</table>
+{% endblock %}

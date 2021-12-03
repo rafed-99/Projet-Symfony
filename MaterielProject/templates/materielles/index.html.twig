@@ -1,0 +1,43 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Materielles index{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Ref</th>
+                <th>Achat</th>
+                <th>Etat</th>
+                <th>Dispo</th>
+                <th>Prix</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for materielle in materielles %}
+            <tr>
+                <td>{{ materielle.nom }}</td>
+                <td>{{ materielle.ref }}</td>
+                <td>{{ materielle.achat }}</td>
+                <td>{{ materielle.etat }}</td>
+                <td>{{ materielle.dispo }}</td>
+                <td>{{ materielle.prix }}</td>
+                <td><img src="{{ asset('Upload/')}}{{ materielle.image }}" width="100"  /></td>
+                <td>
+                    <a href="{{ path('materielle_delete', {'id': materielle.id}) }} " class="btn btn-danger">Delete</a>
+                    <a href="{{ path('materielles_edit', {'id': materielle.id}) }} " class="btn btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

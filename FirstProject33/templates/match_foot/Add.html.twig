@@ -1,0 +1,54 @@
+
+{% extends 'back/base.html.twig' %}
+{% block body%}
+
+<h1> Ajoute Match foot</h1>
+
+
+
+    {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+
+
+    <table>
+        <tr>
+            <td> {{ form_label(form.ref_match,"Ref match")}} </td>
+            <td>{{ form_widget(form.ref_match) }}</td>
+            <td> {{ form_errors(form.ref_match) }}</td>
+
+        </tr>
+        <tr>
+            <td> {{ form_label(form.date_match,"Date match")}} </td>
+            <td>{{ form_widget(form.date_match) }}</td>
+            <td> {{ form_errors(form.date_match) }}</td>
+
+        </tr>
+        <tr>
+            <td> {{ form_label(form.nom_stade,"Nom de stade ")}} </td>
+            <td>{{ form_widget(form.nom_stade) }}</td>
+            <td> {{ form_errors(form.nom_stade) }}</td>
+
+        </tr>
+        <tr>
+            <td> {{ form_label(form.nbr_spectateur,"Nombers spectateur ")}} </td>
+            <td>{{ form_widget(form.nbr_spectateur) }}</td>
+            <td> {{ form_errors(form.nbr_spectateur) }}</td>
+
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="form-group">
+            <label for="exampleFormControlInput"> Are you a robot </label>
+            {{ form_widget(registrationForm.capatch , {'att': { 'class' :'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+
+
+
+    {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

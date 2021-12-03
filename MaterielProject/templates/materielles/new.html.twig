@@ -1,0 +1,54 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}New Materielles{% endblock %}
+
+
+{% block body %}
+
+
+    <div class="card-body">
+        {{ form_start(form) }}
+
+        {{ form_start(form, {'attr': {'class': 'forms-sample'}}) }}
+        <div class="form-group">
+            <label for="exampleInputUsername1">Nom</label>
+            {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.nom) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Reference</label>
+            {{ form_widget(form.ref, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.ref) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Achat</label>
+            {{ form_widget(form.achat, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Etat</label>
+            {{ form_widget(form.etat, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Disponibilite</label>
+            {{ form_widget(form.dispo, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.dispo) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Prix</label>
+            {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Image</label>
+            {{ form_widget(form.file, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Stade</label>
+            {{ form_widget(form.idStade, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <input type="submit" value="Enregistrer" class="btn btn-success" formnovalidate/>
+
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
