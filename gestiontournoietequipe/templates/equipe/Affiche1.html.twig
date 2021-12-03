@@ -1,0 +1,32 @@
+{% extends 'front/front.html.twig' %}
+{% block body%}
+
+{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1>Liste des Equipes</h1>
+        
+        <a class="btn btn-success" href=" {{ path('ListE1') }}"> Trie Par Nbr Effectif </a>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Id Equipe</th>
+                <th>Nom Equipe</th>
+                <th>Nbr Effectif</th>
+                <th>Nom President Equipe</th>
+                <th>Nom Entraineur Equipe</th>
+                <th>Nom Capitaine Equipe</th>
+            </tr>
+            <tr< {% for e in equipe %}>
+                <td>{{ e.idequipe }}</td>
+                <td>{{ e.nomequipe }}</td>
+                <td>{{ e.nbreffectif }}</td>
+                <td>{{ e.nompresidentequipe }}</td>
+                <td>{{ e.nomentrqineurequipe }}</td>
+                <td>{{ e.nomcapitaineesuipe }}</td>
+            </tr {% endfor %}>
+        </table>
+{%endblock%}

@@ -1,0 +1,39 @@
+{% extends 'base/base.html.twig' %}
+{% block body%}
+<h1>Update Equipe</h1>
+{#{{form()}}#}
+{{form_start(fo, {'attr': {'novalidate':'novalidate'}})}}
+<table>
+    <tr>
+        <td>{{form_label(fo.idequipe, "Id Equipe")}}</td>
+        <td>{{form_widget(fo.idequipe)}}</td>
+        <td>{{form_errors(fo.idequipe)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(fo.nomequipe, "Nom Equipe")}}</td>
+        <td>{{form_widget(fo.nomequipe)}}</td>
+        <td>{{form_errors(fo.nomequipe)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(fo.nbreffectif, "Nombre Effectif")}}</td>
+        <td>{{form_widget(fo.nbreffectif)}}</td>
+        <td>{{form_errors(fo.nbreffectif)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(fo.nompresidentequipe, "Nom President Equipe")}}</td>
+        <td>{{form_widget(fo.nompresidentequipe)}}</td>
+        <td>{{form_errors(fo.nompresidentequipe)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(fo.nomentrqineurequipe, "Nom Entraineur Equipe")}}</td>
+        <td>{{form_widget(fo.nomentrqineurequipe)}}</td>
+        <td>{{form_errors(fo.nomentrqineurequipe)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(fo.nomcapitaineesuipe, "Nom Capitaine Equipe")}}</td>
+        <td>{{form_widget(fo.nomcapitaineesuipe)}}</td>
+        <td>{{form_errors(fo.nomcapitaineesuipe)}}</td>
+    </tr>
+</table>
+{{form_end(fo)}}
+{%endblock%}

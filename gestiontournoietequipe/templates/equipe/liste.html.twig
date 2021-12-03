@@ -1,0 +1,34 @@
+{% extends 'front/front.html.twig' %}
+{% block title%} Liste des Equipes{% endblock %}
+
+{% block body %}
+{{ form_start(fce) }}
+
+
+   {{ form_row(fce.nomequipe) }}
+ 
+      <button type="submit" class="btn btn-success">Rechercher</button>
+ {{ form_end(fce) }}
+{% if equipe %}
+    <table border="1">
+        <tr>
+                <th>Id Equipe</th>
+                <th>Nom Equipe</th>
+                <th>Nbr Effectif</th>
+                <th>Nom President Equipe</th>
+                <th>Nom Entraineur Equipe</th>
+                <th>Nom Capitaine Equipe</th>
+        </tr>
+          <tr< {% for e in equipe %}>
+                <td>{{ e.idequipe }}</td>
+                <td>{{ e.nomequipe }}</td>
+                <td>{{ e.nbreffectif }}</td>
+                <td>{{ e.nompresidentequipe }}</td>
+                <td>{{ e.nomentrqineurequipe }}</td>
+                <td>{{ e.nomcapitaineesuipe }}</td>
+            </tr {% endfor %}>
+    </table>
+    {% else %}
+    <p>Aucun equipe</p>
+  {% endif %} 
+{% endblock %}

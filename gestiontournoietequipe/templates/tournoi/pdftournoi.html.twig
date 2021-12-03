@@ -1,0 +1,28 @@
+        <h1>Liste de tournois</h1>
+        <table  border="1">
+        <thead>
+            <tr>
+                <th>Id Tournoi</th>
+                <th>Nom Tournoi</th>
+                <th>Nbr Equipes</th>
+                <th>Date Debut Tournoi</th>
+                <th>Date Fin Tournoi</th>
+                <th>Heure Match Tournoi</th>
+                <th>Nbr Poules</th>
+            </tr>
+            </thead>
+            <tbody>
+             {% for t in tournoi %}
+            <tr>
+                <td>{{ t.idtournoi }}</td>
+                <td>{{ t.nomtournoi }}</td>
+                <td>{{ t.nbrequipes }}</td>
+                <td>{{ t.getDatedebuttournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getDatefintournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getHeurematchtournoi()|date('H:i:s') }}</td>
+                <td>{{ t.nbrpoules }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+

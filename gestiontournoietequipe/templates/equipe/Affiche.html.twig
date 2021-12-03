@@ -1,0 +1,38 @@
+{% extends 'base/base.html.twig' %}
+{% block body%}
+
+{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1>Liste des Equipes</h1>
+        
+        <a class="btn btn-success" href=" {{ path('ListE') }}"> Trie Par Nbr Effectif </a>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Id Equipe</th>
+                <th>Nom Equipe</th>
+                <th>Nbr Effectif</th>
+                <th>Nom President Equipe</th>
+                <th>Nom Entraineur Equipe</th>
+                <th>Nom Capitaine Equipe</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr< {% for e in equipe %}>
+                <td>{{ e.idequipe }}</td>
+                <td>{{ e.nomequipe }}</td>
+                <td>{{ e.nbreffectif }}</td>
+                <td>{{ e.nompresidentequipe }}</td>
+                <td>{{ e.nomentrqineurequipe }}</td>
+                <td>{{ e.nomcapitaineesuipe }}</td>
+                <td><a href="{{ path('majour',{'idequipe':e.idequipe}) }}">Update</a></td>
+                <td><a href="{{ path('delete',{'idequipe':e.idequipe}) }}">Delete</a></td>
+            </tr {% endfor %}>
+        </table>
+                <p><a href="{{ path('listpdfe')}}">Telecharger Sous Forme Pdf</a></p>
+
+{%endblock%}

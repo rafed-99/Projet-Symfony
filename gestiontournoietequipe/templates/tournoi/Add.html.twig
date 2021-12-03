@@ -1,0 +1,44 @@
+{% extends 'front/front.html.twig' %}
+{% block body%}
+<h1>Ajout Tournoi</h1>
+{#{{form(form)}}#}
+{{form_start(forme, {'attr': {'novalidate':'novalidate'}})}}
+<table>
+    <tr>
+        <td>{{form_label(forme.idtournoi, "Id Tournoi")}}</td>
+        <td>{{form_widget(forme.idtournoi)}}</td>
+        <td>{{form_errors(forme.idtournoi)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.nomtournoi, "Nom Tournoi")}}</td>
+        <td>{{form_widget(forme.nomtournoi)}}</td>
+        <td>{{form_errors(forme.nomtournoi)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.nbrequipes, "Nombre Equipes")}}</td>
+        <td>{{form_widget(forme.nbrequipes)}}</td>
+        <td>{{form_errors(forme.nbrequipes)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.datedebuttournoi, "Date Debut Tournoi")}}</td>
+        <td>{{form_widget(forme.datedebuttournoi)}}</td>
+        <td>{{form_errors(forme.datedebuttournoi)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.datefintournoi, "Date Fin Tournoi")}}</td>
+        <td>{{form_widget(forme.datefintournoi)}}</td>
+        <td>{{form_errors(forme.datefintournoi)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.heurematchtournoi, "Heure Match Tournoi")}}</td>
+        <td>{{form_widget(forme.heurematchtournoi)}}</td>
+        <td>{{form_errors(forme.heurematchtournoi)}}</td>
+    </tr>
+    <tr>
+        <td>{{form_label(forme.nbrpoules, "Nombre Poules")}}</td>
+        <td>{{form_widget(forme.nbrpoules)}}</td>
+        <td>{{form_errors(forme.nbrpoules)}}</td>
+    </tr>
+</table>
+{{form_end(forme)}}
+{%endblock%}

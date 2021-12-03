@@ -1,0 +1,26 @@
+
+        <h1>Liste des Equipes</h1>
+        <table border="1">
+        <thead>
+            <tr>
+                <th>Id Equipe</th>
+                <th>Nom Equipe</th>
+                <th>Nbr Effectif</th>
+                <th>Nom President Equipe</th>
+                <th>Nom Entraineur Equipe</th>
+                <th>Nom Capitaine Equipe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for e in equipe %}
+            <tr>
+                <td>{{ e.idequipe }}</td>
+                <td>{{ e.nomequipe }}</td>
+                <td>{{ e.nbreffectif }}</td>
+                <td>{{ e.nompresidentequipe }}</td>
+                <td>{{ e.nomentrqineurequipe }}</td>
+                <td>{{ e.nomcapitaineesuipe }}</td>
+            </tr>
+             {% endfor %}
+            </tbody>
+        </table>

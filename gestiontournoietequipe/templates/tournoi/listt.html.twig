@@ -1,0 +1,36 @@
+{% extends 'front/front.html.twig' %}
+{% block title%} Liste des TOurnois{% endblock %}
+
+{% block body %}
+{{ form_start(fc) }}
+
+
+   {{ form_row(fc.nomtournoi) }}
+ 
+      <button type="submit" class="btn btn-success">Rechercher</button>
+ {{ form_end(fc) }}
+{% if tournoi %}
+    <table border="1">
+        <tr>
+                <th>Id Tournoi</th>
+                <th>Nom Tournoi</th>
+                <th>Nbr Equipes</th>
+                <th>Date Debut Tournoi</th>
+                <th>Date Fin Tournoi</th>
+                <th>Heure Match Tournoi</th>
+                <th>Nbr Poules</th>
+        </tr>
+          <tr{% for t in tournoi %}>
+                <td>{{ t.idtournoi }}</td>
+                <td>{{ t.nomtournoi }}</td>
+                <td>{{ t.nbrequipes }}</td>
+                <td>{{ t.getDatedebuttournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getDatefintournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getHeurematchtournoi()|date('H:i:s') }}</td>
+                <td>{{ t.nbrpoules }}</td>
+            </tr {% endfor %}>
+    </table>
+    {% else %}
+    <p>Aucun tournois</p>
+  {% endif %} 
+{% endblock %}

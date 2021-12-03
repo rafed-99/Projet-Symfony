@@ -1,0 +1,39 @@
+{% extends 'base/base.html.twig' %}
+{% block body%}
+
+{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1>Liste de tournois</h1>
+        <a class="btn btn-success" href=" {{ path('ListT') }}"> Trie Par Nbr Equipes </a>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Id Tournoi</th>
+                <th>Nom Tournoi</th>
+                <th>Nbr Equipes</th>
+                <th>Date Debut Tournoi</th>
+                <th>Date Fin Tournoi</th>
+                <th>Heure Match Tournoi</th>
+                <th>Nbr Poules</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr< {% for t in tournoi %}>
+                <td>{{ t.idtournoi }}</td>
+                <td>{{ t.nomtournoi }}</td>
+                <td>{{ t.nbrequipes }}</td>
+                <td>{{ t.getDatedebuttournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getDatefintournoi()|date("m/d/Y") }}</td>
+                <td>{{ t.getHeurematchtournoi()|date('H:i:s') }}</td>
+                <td>{{ t.nbrpoules }}</td>
+                <td><a href="{{ path('maja',{'idtournoi':t.idtournoi}) }}">Update</a></td>
+                <td><a href="{{ path('del',{'idtournoi':t.idtournoi}) }}">Delete</a></td>
+            </tr {% endfor %}>
+        </table>
+
+        <p><a href="{{ path('listpdf')}}">Telecharger Sous Forme Pdf</a></p>
+{%endblock%}
