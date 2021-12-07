@@ -1,0 +1,38 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <h1>La liste des Articles</h1>
+    <form methode="post"  action="{{ path('rechercherart') }}">
+        <label>Recherche</label>
+        <input type="text" name="search"><input type="submit" value="Recherche" class="btn-danger" >
+    </form>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ref Article</th>
+            <th>Nom Article</th>
+            <th>Taille</th>
+            <th>Prix</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+
+                <td>{{ article.id }}</td>
+                <td>{{ article.getRefarticle() }}</td>
+                <td>{{ article.getNomarticle() }}</td>
+                <td>{{ article.getTaille() }}</td>
+                <td>{{ article.getPrix() }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

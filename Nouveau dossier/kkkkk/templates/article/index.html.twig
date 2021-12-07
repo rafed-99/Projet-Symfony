@@ -1,0 +1,41 @@
+{% extends 'back/back.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <h1>La liste des Articles</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Ref Article</th>
+        <th>Nom Article</th>
+        <th>Taille</th>
+        <th>Prix</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for a in articles %}
+        <tr>
+
+            <td>{{ a.id }}</td>
+            <td>{{ a.getRefarticle() }}</td>
+            <td>{{ a.getNomarticle() }}</td>
+            <td>{{ a.getTaille() }}</td>
+            <td>{{ a.getPrix() }}</td>
+            <td>
+                <a href="{{ path('modifierarticle', {'id': a.id}) }}"  >Modifier</a>
+            </td>
+            <td>
+                <a href="{{ path('supprimerarticle', {'id': a.id}) }}"  >Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <p><a href="{{ path('listA') }}">Telecharger sous forme pdf</a></p>
+{% endblock %}

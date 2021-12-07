@@ -1,0 +1,37 @@
+{% extends 'back/back.html.twig' %}
+
+{% block title %}Hello MagasinController!{% endblock %}
+
+{% block body %}
+    <h1>La liste des Magasins</h1>
+    <table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom Magasin</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for magasin in magasins %}
+        <tr>
+
+            <td>{{ magasin.id }}</td>
+            <td>{{ magasin.getNommagasin() }}</td>
+
+
+
+            <td>
+                <a href="{{ path('modifiermagasin', {'id': magasin.id}) }}"  >Modifier</a>
+            </td>
+            <td>
+                <a href="{{ path('supprimermagasin', {'id': magasin.id}) }}"  >Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

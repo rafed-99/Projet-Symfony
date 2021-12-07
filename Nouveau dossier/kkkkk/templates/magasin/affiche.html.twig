@@ -1,0 +1,27 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Hello MagasinController!{% endblock %}
+
+{% block body %}
+    <h1>La liste des Magasins</h1>
+<form methode="post"  action="{{ path('recherchermag') }}">
+    <label>Recherche</label>
+    <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-info" >
+</form>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom Magasin</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for magasin in magasins %}
+            <tr>
+                <td>{{ magasin.id }}</td>
+                <td>{{ magasin.getNommagasin() }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

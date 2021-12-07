@@ -1,0 +1,25 @@
+{% extends 'front/front.html.twig' %}
+{% block body%}
+
+    <h1> Ajoute Magasin</h1>
+
+
+
+    {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+
+
+    <table>
+        <tr>
+            <td> {{ form_label(form.nommagasin,"Nom Magasin")}} </td>
+            <td>{{ form_widget(form.nommagasin) }}</td>
+            <td> {{ form_errors(form.nommagasin) }}</td>
+
+        </tr>
+
+    </table>
+    {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

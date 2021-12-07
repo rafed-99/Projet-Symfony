@@ -1,0 +1,6 @@
+{% block body %}
+<h1>Nouveau contact</h1>
+<p>Nom :{{ contact.name }}</p>
+<p>Email :{{ contact.email }}</p>
+<p>Message :{{ contact.message|raw }}</p>
+{% endblock %}

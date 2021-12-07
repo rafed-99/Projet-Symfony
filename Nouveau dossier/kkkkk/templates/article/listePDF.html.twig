@@ -1,0 +1,26 @@
+
+    <h1>La liste des Articles</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ref Article</th>
+            <th>Nom Article</th>
+            <th>Taille</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for a in article %}
+            <tr>
+
+                <td>{{ a.id }}</td>
+                <td>{{ a.getRefarticle() }}</td>
+                <td>{{ a.getNomarticle() }}</td>
+                <td>{{ a.getTaille() }}</td>
+                <td>{{ a.getPrix() }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+

@@ -1,0 +1,52 @@
+{% extends 'front/front.html.twig' %}
+{% block body%}
+
+    <h1> Ajoute Article</h1>
+
+
+
+    {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+
+
+    <table>
+        <tr>
+            <td> {{ form_label(form.refarticle,"Ref Article")}} </td>
+            <td>{{ form_widget(form.refarticle) }}</td>
+            <td> {{ form_errors(form.refarticle) }}</td>
+
+        </tr>
+        <tr>
+            <td> {{ form_label(form.nomarticle,"Nom Article")}} </td>
+            <td>{{ form_widget(form.nomarticle) }}</td>
+            <td> {{ form_errors(form.nomarticle) }}</td>
+
+        </tr>
+
+        <tr>
+            <td> {{ form_label(form.taille,"Taille")}} </td>
+            <td>{{ form_widget(form.taille) }}</td>
+            <td> {{ form_errors(form.taille) }}</td>
+
+        </tr>
+
+        <tr>
+            <td> {{ form_label(form.prix,"Prix")}} </td>
+            <td>{{ form_widget(form.prix) }}</td>
+            <td> {{ form_errors(form.prix) }}</td>
+
+        </tr>
+
+        <tr>
+            <td> {{ form_label(form.magasin,"Magasin")}} </td>
+            <td>{{ form_widget(form.magasin) }}</td>
+            <td> {{ form_errors(form.magasin) }}</td>
+
+        </tr>
+
+    </table>
+    {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}
